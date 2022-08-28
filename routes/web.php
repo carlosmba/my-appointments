@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SpecialtyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); // route('home')
+
+
+//Specialty
+Route::get('/specialties', [SpecialtyController::class, 'index']);
+Route::get('/specialties/create', [SpecialtyController::class, 'create']);
+Route::get('/specialties/{spacialty}/edit', [SpecialtyController::class, 'edit']);
+Route::post('/specialties/store', [SpecialtyController::class, 'store']);
